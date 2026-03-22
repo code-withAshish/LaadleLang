@@ -1,0 +1,91 @@
+{
+  "scopeName": "source.laadle",
+  "name": "laadle",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#keywords" },
+    { "include": "#literals" },
+    { "include": "#numbers" },
+    { "include": "#operators" },
+    { "include": "#functions" },
+    { "include": "#variables" }
+  ],
+
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.laadle",
+          "match": "//.*$"
+        }
+      ]
+    },
+
+    "strings": {
+      "name": "string.quoted.double.laadle",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.laadle",
+          "match": "\\\\."
+        }
+      ]
+    },
+
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.laadle",
+          "match": "\\b(agar|warna|jabtak|koshish|pakad|wapas|nikal|aage)\\b"
+        },
+        {
+          "name": "keyword.declaration.laadle",
+          "match": "\\b(laadle|kaam)\\b"
+        },
+        {
+          "name": "keyword.operator.assignment.laadle",
+          "match": "\\b(hai|toh)\\b"
+        },
+        {
+          "name": "support.function.laadle",
+          "match": "\\b(bol|gopgop)\\b"
+        }
+      ]
+    },
+
+    "literals": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.laadle",
+          "match": "\\b(sahi|galat)\\b"
+        },
+        {
+          "name": "constant.language.null.laadle",
+          "match": "\\b(meow)\\b"
+        }
+      ]
+    },
+
+    "numbers": {
+      "name": "constant.numeric.laadle",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+
+    "operators": {
+      "name": "keyword.operator.laadle",
+      "match": "(\\+|\\-|\\*|\\/|==|!=|>=|<=|>|<|&&|\\|\\||!)"
+    },
+
+    "functions": {
+      "name": "entity.name.function.laadle",
+      "match": "\\b([a-zA-Z_]\\w*)\\s*(?=\\()"
+    },
+
+    "variables": {
+      "name": "variable.other.laadle",
+      "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "basics",
+    "control_flow",
+    "functions",
+    "errors"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "pages": [
+    "index",
+    "example_fibonacci",
+    "example_factorial",
+    "example_error"
+  ]
+}
