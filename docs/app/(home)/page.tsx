@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="max-w-4xl mx-auto flex flex-col items-center mt-12">
         <div className="inline-flex items-center rounded-full border border-gray-700 px-4 py-1.5 text-sm font-semibold mb-10 bg-[#1e1e1e] shadow-sm hover:shadow-md transition-all cursor-pointer">
           <span className="flex rounded-full bg-orange-500 w-2.5 h-2.5 mr-2 animate-pulse" />
-          <span className="text-gray-300">Scene set hai bhai, v1.0 Live hai! 🔥</span>
+          <span className="text-gray-300">Scene set hai bhai, v1.0.1 Live hai! 🔥</span>
         </div>
         
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent pb-3">

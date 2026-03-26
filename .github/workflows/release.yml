@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*' # Triggers workflow on version tag pushes, e.g., v1.0.0
 
+permissions:
+  contents: write
+
 jobs:
   build_release:
     name: Compile ${{ matrix.target }}
