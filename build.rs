@@ -53,6 +53,11 @@ fn main() {
 
     // 3. Bundle Playground with Esbuild
     println!("cargo:warning=Bundling playground and minifying assets...");
+    
+    // Ensure the output directory exists
+    let out_dir = "docs/public/playground";
+    std::fs::create_dir_all(out_dir).expect("Failed to create playground output directory");
+
     let status = Command::new(npm_cmd)
         .arg("run")
         .arg("build")
@@ -62,4 +67,11 @@ fn main() {
     if !status.success() {
         panic!("npm run build failed");
     }
+
+    // 4. Copy static assets manually (Cross-platform replacement for `cp`)
+    println!("cargo:warning=Copying static assets to docs/public/playground...");
+    std::fs::copy("playground/src/index.html", format!("{}/index.html", out_dir))
+        .expect("Failed to copy index.html");
+    std::fs::copy("playground/src/wasm/laadlelang_bg.wasm", format!("{}/laadlelang_bg.wasm", out_dir))
+        .expect("Failed to copy WASM binary");
 }
