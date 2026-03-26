@@ -43,22 +43,18 @@ bol fibonacci(term)
 
 ## 🛠️ Installation & Build
 
-### 🚀 Pre-Compiled Binaries (Recommended)
-
-LaadleLang provides pre-compiled, zero-dependency binaries for **Windows, macOS (Intel & M-Series), and Linux (glibc & musl)** via GitHub Actions.
-
-1. Go to the **Releases** tab of this repository.
-2. Download the binary archive for your operating system.
-3. Run it directly from your terminal! No external dependencies, Node.js, or NPM required.
-
-### 💻 Build from Source
-
 Since the entire frontend and WASM build pipeline is integrated seamlessly into Cargo via `build.rs`, compiling from source is incredibly simple:
 
+### 1. Prerequisites
+- [Rust](https://rustup.rs/) (edition 2024+)
+- [Node.js](https://nodejs.org/) (v20+)
+- `wasm-pack` (`cargo install wasm-pack`)
+
+### 2. Build from Source
 ```bash
 # 1. Clone the repository
 git clone https://github.com/code-withAshish/LaadleLang.git
-cd laadlelang
+cd LaadleLang
 
 # 2. Automate WASM building, JS bundling, and Rust compilation
 cargo build --release
