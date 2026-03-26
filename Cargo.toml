@@ -1,7 +1,8 @@
 [package]
 name = "laadlelang"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
+build = "build.rs"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
@@ -9,8 +10,12 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 wasm-bindgen = "0.2"
 console_error_panic_hook = "0.1.7"
+mime_guess = "2.0.5"
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+open = "5.3.3"
+rust-embed = "8.11.0"
+tiny_http = "0.12.0"
 rustyline = "17.0.2"
 inquire = "0.9.4"
 clap = { version = "4.6.0", features = ["derive"] }

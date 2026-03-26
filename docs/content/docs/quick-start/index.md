@@ -4,38 +4,47 @@ title: "Quick Start"
 
 ## Prerequisites
 
-To run LaadleLang, you need to have **Rust** and **Cargo** installed on your system.
-If you don't have Rust installed, follow the instructions on [rustup.rs](https://rustup.rs).
+To run LaadleLang or build it from source, you need to have **Rust**, **Cargo**, and **Node.js** installed on your system.
 
-## Compiling and Running
+## Compiling from Source
+
+Since LaadleLang embeds a high-fidelity WebAssembly-powered Native IDE interface, the build process has been completely automated via `build.rs`.
 
 1. Clone or download the LaadleLang repository.
 2. Open your terminal in the project directory.
-3. Run the project using standard cargo commands:
+3. Run the project using the standard cargo release command:
 
 ```bash
-cargo run
+cargo build --release
 ```
 
-Currently, `cargo run` will execute the example program found in `src/main.rs`. You can inspect the `src/main.rs` file to see how the code is tokenized, parsed, compiled, and executed by the VM.
+This single command natively compiles the WASM core via `wasm-pack`, bundles the Vanilla JS playground output directly into the Next.js static asset registry, and links everything securely into a self-contained 3.4MB native Rust binary.
 
-## Running the Tests
+## Running the Interactive CLI
 
-LaadleLang has a comprehensive test suite covering the Tokenizer, Parser, Compiler, and Virtual Machine via both Unit and End-to-End (E2E) tests.
-
-Run the entire suite using:
+Once built (or downloaded from our pre-compiled GitHub Releases page), the unified executable acts as the entrypoint for everything:
 
 ```bash
-cargo test
+# Start the interactive REPL and Menu
+./target/release/laadlelang
+
+# Launch the locally embedded Playground IDE (starts internal tiny_http server)
+./target/release/laadlelang playground
+
+# Execute a source file directly
+./target/release/laadlelang run path/to/script.laadle
 ```
 
-## Creating Documentation
+## Running the Documentation Site Locally
 
-This documentation is built using [mdBook](https://rust-lang.github.io/mdBook/).
+This entire documentation site is built using [Fumadocs](https://fumadocs.vercel.app/) and Next.js.
 
-To build and serve this documentation locally:
+To run the documentation locally:
 
 ```bash
-cargo install mdbook
-mdbook serve docs --open
+cd docs
+npm ci
+npm run dev
 ```
+
+The docs will be available at `http://localhost:3000`.

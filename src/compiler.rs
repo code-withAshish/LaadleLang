@@ -25,7 +25,24 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 use crate::ast::{BinaryOp, Expr, Stmt, UnaryOp};
+use crate::parser::Parser as LaadleParser;
+use crate::tokenizer::Tokenizer;
 use crate::vm::{OpCode, Value};
+
+/// A high-level helper that tokenizes, parses, and compiles source code into bytecode.
+pub fn compile_source(source: &str) -> Vec<OpCode> {
+    let mut lexer = Tokenizer::new(source);
+    let tokens = lexer.tokenize();
+
+    let mut parser = LaadleParser::new(tokens);
+    let stmts = parser.parse();
+    if parser.error.is_some() {
+        return Vec::new();
+    }
+
+    let mut compiler = Compiler::new();
+    compiler.compile(&stmts)
+}
 
 // ─── LOOP CONTEXT ────────────────────────────────────────────────────────────
 // Tracks the addresses of Break / Continue placeholder jumps that need to be
@@ -541,15 +558,6 @@ impl Compiler {
             }
         }
     }
-}
-
-// ─── CONVENIENCE ─────────────────────────────────────────────────────────────
-
-/// Compile a source string end-to-end: tokenize → parse → compile.
-pub fn compile_source(source: &str) -> Vec<OpCode> {
-    use crate::parser::parse_source;
-    let ast = parse_source(source);
-    Compiler::new().compile(&ast)
 }
 
 // ─── TESTS ───────────────────────────────────────────────────────────────────

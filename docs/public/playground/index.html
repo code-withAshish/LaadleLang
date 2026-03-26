@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaadleLang Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🐱 LaadleLang Playground</div>
+        <button id="run-btn" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            <span id="btn-text">Initializing...</span>
+        </button>
+    </header>
+    <main>
+        <div id="editor-pane" class="pane">
+            <span class="pane-label">Input</span>
+            <div class="editor-container">
+                <div id="loading" class="shiki-loading">Loading VM...</div>
+                <textarea id="input-area" spellcheck="false" placeholder="Write code here...">laadle name hai "LaadleLang"
+bol "Welcome to " + name
+
+// Fibonacci Example
+kaam fib(n) toh
+    agar n <= 1 toh
+        wapas n
+    wapas fib(n - 1) + fib(n - 2)
+
+bol "Fib(5) is:"
+bol fib(5)</textarea>
+                <pre id="highlight-area" aria-hidden="true"><code class="language-laadle" id="highlight-code"></code></pre>
+            </div>
+        </div>
+        <div id="output-pane" class="pane">
+            <span class="pane-label">Output</span>
+            <pre id="output">Click 'Run' to execute.</pre>
+        </div>
+    </main>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

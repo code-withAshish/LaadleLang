@@ -1,0 +1,14 @@
+{
+  "name": "laadle-playground",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p ../docs/public/playground && esbuild src/app.js src/style.css --bundle --minify --format=esm --outdir=../docs/public/playground && cp src/index.html ../docs/public/playground/ && cp src/wasm/laadlelang_bg.wasm ../docs/public/playground/"
+  },
+  "dependencies": {
+    "prismjs": "^1.29.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}

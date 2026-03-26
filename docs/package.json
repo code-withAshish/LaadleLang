@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -10,8 +10,6 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@monaco-editor/react": "^4.7.0",
-    "@shikijs/monaco": "^4.0.2",
     "@takumi-rs/image-response": "^0.73.1",
     "fumadocs-core": "16.7.4",
     "fumadocs-mdx": "14.2.11",
@@ -21,7 +19,6 @@
     "next": "16.2.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "shiki": "^4.0.2",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
